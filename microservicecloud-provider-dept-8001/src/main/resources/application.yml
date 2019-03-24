@@ -24,7 +24,7 @@ spring:
 eureka:
   client:
     service-url:                                  # \u7B49\u5F85\u8FDE\u63A5\u83B7\u53D6\u7684\u6700\u5927\u8D85\u65F6\u65F6\u95F4
-      defaultZone: http://localhost:7001/eureka    #添加入驻的地址
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/    #添加入驻的地址
   instance:
     instance-id: microserivecloud-dept8001          #eureka按照别名的方式显示而不是localshot
     prefer-ip-address: true               #访问路劲可以显示ip地址
