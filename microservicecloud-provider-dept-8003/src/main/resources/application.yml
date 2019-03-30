@@ -1,0 +1,36 @@
+server:
+  port: 8003
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis\u914D\u7F6E\u6587\u4EF6\u6240\u5728\u8DEF\u5F84
+  type-aliases-package: com.mingqian.springcloud.entity      # \u6240\u6709Entity\u522B\u540D\u7C7B\u6240\u5728\u5305
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapper\u6620\u5C04\u6587\u4EF6
+
+spring:
+   application:
+    name: microservicecloud-dept
+   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # \u5F53\u524D\u6570\u636E\u6E90\u64CD\u4F5C\u7C7B\u578B
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql\u9A71\u52A8\u5305
+    url: jdbc:mysql://localhost:3306/cloudDB03              # \u6570\u636E\u5E93\u540D\u79F0
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5                                           # \u6570\u636E\u5E93\u8FDE\u63A5\u6C60\u7684\u6700\u5C0F\u7EF4\u6301\u8FDE\u63A5\u6570
+      initial-size: 5                                       # \u521D\u59CB\u5316\u8FDE\u63A5\u6570
+      max-total: 5                                          # \u6700\u5927\u8FDE\u63A5\u6570
+      max-wait-millis: 200
+eureka:
+  client:
+    service-url:                                  # \u7B49\u5F85\u8FDE\u63A5\u83B7\u53D6\u7684\u6700\u5927\u8D85\u65F6\u65F6\u95F4
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/    #添加入驻的地址
+  instance:
+    instance-id: microserivecloud-dept8003          #eureka按照别名的方式显示而不是localshot
+    prefer-ip-address: true               #访问路劲可以显示ip地址
+
+info:
+  app.name: mingqian-microservicecloud
+  company.name: www.mingqian.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
