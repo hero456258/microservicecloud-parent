@@ -3,6 +3,7 @@ package com.mingqian.springcloud.cfgbeans;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RandomRule;
 import com.netflix.loadbalancer.RetryRule;
+import com.netflix.loadbalancer.RoundRobinRule;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,8 +24,8 @@ public class ConfigBean {
     }
 
     @Bean
-    public IRule randomRule(){
+    public IRule myRule(){
         //return new RetryRule();//先按照RoundRobinRule的策略获取服务，如果获取服务失败则在指定时间内会进行重试，获取可用服务
-        return new RandomRule();//默认是用的轮询，这里重新定义成随机的
+        return new RetryRule();//默认是用的轮询，这里重新定义成随机的
     }
 }
