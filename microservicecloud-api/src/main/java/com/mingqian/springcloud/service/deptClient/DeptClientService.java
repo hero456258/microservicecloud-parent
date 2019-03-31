@@ -2,7 +2,7 @@ package com.mingqian.springcloud.service.deptClient;
 
 import com.mingqian.springcloud.entity.Dept;
 import com.mingqian.springcloud.service.DeptClientServiceFallbackFactory;
-import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
